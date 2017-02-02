@@ -96,7 +96,7 @@ public class MaxwellConfig extends AbstractConfig {
 
 		parser.accepts( "__separator_3" );
 
-		parser.accepts( "producer", "producer type: stdout|file|kafka|kinesis" ).withRequiredArg();
+		parser.accepts( "producer", "producer type: stdout|file|kafka|kinesis|firehose" ).withRequiredArg();
 		parser.accepts( "output_file", "output file for 'file' producer" ).withRequiredArg();
 
 		parser.accepts( "producer_partition_by", "database|table|primary_key|column, kafka/kinesis producers will partition by this value").withRequiredArg();
@@ -394,6 +394,8 @@ public class MaxwellConfig extends AbstractConfig {
 			usageForOptions("please specify --output_file=FILE to use the file producer", "--producer", "--output_file");
 		} else if ( this.producerType.equals("kinesis") && this.kinesisStream == null) {
 			usageForOptions("please specify a stream name for kinesis", "kinesis_stream");
+		} else if ( this.producerType.equals("firehose") && this.kinesisStream == null) {
+			usageForOptions("please specify a stream name for kinesis firehose", "kinesis_stream");
 		}
 
 		if ( !this.bootstrapperType.equals("async")

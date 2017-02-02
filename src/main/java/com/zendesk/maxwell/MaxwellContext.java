@@ -223,6 +223,9 @@ public class MaxwellContext {
 		case "kinesis":
 			this.producer = new MaxwellKinesisProducer(this, this.config.kinesisStream);
 			break;
+		case "firehose":
+			this.producer = new MaxwellFirehoseProducer(this, this.config.kinesisStream);
+			break;
 		case "profiler":
 			this.producer = new ProfilerProducer(this);
 			break;
