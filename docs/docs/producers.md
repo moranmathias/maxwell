@@ -118,6 +118,11 @@ The producer uses the [KPL (Kinesis Producer Library](http://docs.aws.amazon.com
 Copy `kinesis-producer-library.properties.example` to `kinesis-producer-library.properties` and configure the properties file to your needs.
 The most important option here is configuring the region.
 
+### Kinesis Firehose Options
+***
+Set the output stream in `config.properties` by setting the `kinesis_stream` property.
+
+
 <script>
   jQuery(document).ready(function () {
     jQuery("table").addClass("table table-condensed table-bordered table-hover");
