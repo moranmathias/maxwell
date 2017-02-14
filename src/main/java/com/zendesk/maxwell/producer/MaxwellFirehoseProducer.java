@@ -30,7 +30,7 @@ public class MaxwellFirehoseProducer extends AbstractProducer {
         if(value == null){
             return;
         }
-        
+
         Record record = new Record().withData(ByteBuffer.wrap(value.getBytes("UTF-8")));
 
         PutRecordRequest putRecordRequest = new PutRecordRequest()
@@ -41,7 +41,7 @@ public class MaxwellFirehoseProducer extends AbstractProducer {
         PutRecordResult putRecordResult = firehoseClient.putRecord(putRecordRequest);
 
         if(logger.isDebugEnabled()) {
-            logger.debug("-> "+ ", record id:" + putRecordResult.getRecordId());
+            logger.debug("-> " + ", record id:" + putRecordResult.getRecordId());
             logger.debug("   " + value);
             logger.debug("   " + r.getPosition());
             logger.debug("");
