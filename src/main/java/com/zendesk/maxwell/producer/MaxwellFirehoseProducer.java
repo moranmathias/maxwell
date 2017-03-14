@@ -46,6 +46,6 @@ public class MaxwellFirehoseProducer extends AbstractProducer {
             logger.debug("   " + r.getPosition());
             logger.debug("");
         }
-
+        context.setPosition(r);
     }
 }
